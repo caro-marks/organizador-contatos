@@ -1,28 +1,32 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <router-view />
+    <p class="footer"> Projeto desenvolvido por Marcos Nolasco, como parte do processo seletivo da Conecta Nuvem. </p>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    name: 'App'
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  #app {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    background: #80e27e;
+    margin: 0 0.2em;
+    height: 100%;
+  }
+  .footer {
+    text-align: center; 
+    background:#087f23;
+    color: #fff;
+    padding: 0.5em;
+  }
 </style>
