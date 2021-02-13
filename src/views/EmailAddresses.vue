@@ -7,15 +7,15 @@
             </a>
         </section>
         <section>                 
-            <ol class="lista">
+            <ul class="lista">
                 <li
                     class="lista-item"
                     v-for="(nicks, dominio) in emails"
                     v-bind:item="dominio"
                     v-bind:index="nicks"
-                    v-bind:key="dominio.id">
+                    v-bind:key="dominio">
                 </li>
-            </ol>
+            </ul>
         </section>       
     </div>
 </template>
@@ -33,43 +33,14 @@
                 emails : {}
             }
         },
-        // methods: {
-        //     Organizer () {
-        //         const contatos = this.$gAuth.listEmails();
-        //         if (contatos.length > 0) {
-        //             for (let i = 0; i < contatos.length; i++) {
-        //                 const avatar = contatos[i];
-        //                 const address = avatar.emailAddresses
-                        
-        //                 if (address && address.length > 0) {
-        //                     const email = String(address[0].value)
-        //                     const nick = email.substring(0, email.lastIndexOf('@'))
-        //                     const domain = email.substring(email.lastIndexOf('@'))
-        //                     if (!this.emails[domain]) {
-        //                         this.emails[domain] = []
-        //                     }
-        //                     this.emails[domain].push(nick)
-        //                 }
-        //             }
-        //         }
-
-        //     }
-        // }
-        /*
-
         created() {
-            this.$gAuth.listEmails()
-            .then(res => this.emails = res.json(), err => console.log(err))
-        }
-        
-        created () => {
-
-                
-            var contatos = this.$gAuth.listEmails();
+            const contatos = this.$gAuth.Execute()
+            this.log(contatos)
             if (contatos.length > 0) {
                 for (let i = 0; i < contatos.length; i++) {
                     const avatar = contatos[i];
                     const address = avatar.emailAddresses
+                    
                     if (address && address.length > 0) {
                         const email = String(address[0].value)
                         const nick = email.substring(0, email.lastIndexOf('@'))
@@ -80,9 +51,31 @@
                         this.emails[domain].push(nick)
                     }
                 }
-            } 
-        }*/
+            }
+        }
     }
+    // methods: {
+    //     Organizer () {
+    //         const contatos = this.$gAuth.listEmails();
+    //         if (contatos.length > 0) {
+    //             for (let i = 0; i < contatos.length; i++) {
+    //                 const avatar = contatos[i];
+    //                 const address = avatar.emailAddresses
+                    
+    //                 if (address && address.length > 0) {
+    //                     const email = String(address[0].value)
+    //                     const nick = email.substring(0, email.lastIndexOf('@'))
+    //                     const domain = email.substring(email.lastIndexOf('@'))
+    //                     if (!this.emails[domain]) {
+    //                         this.emails[domain] = []
+    //                     }
+    //                     this.emails[domain].push(nick)
+    //                 }
+    //             }
+    //         }
+
+    //     }
+    // }
     
 </script>
 

@@ -26,6 +26,16 @@ const googleAuth = (function () {
         })
     }
 
+    function listEmails() {
+        window.gapi.client.people.otherContacts.list({
+            "readMask":"emailAddresses"
+        }).then(response => {
+            const contatos = response.result.otherContacts;
+            console.log(contatos)
+            return contatos
+        })
+    }
+
     class Auth {
         constructor() {
             if (!(this instanceof Auth)) return new Auth()
@@ -70,6 +80,22 @@ const googleAuth = (function () {
                             if (typeof errorCallback === 'function')
                                 errorCallback(error)
                             reject(error)
+                        })
+                })
+            }
+
+            this.Execute = () => {
+                return new Promise((resolve,reject) => {
+                    console.log(resolve,reject)
+                    listEmails()
+                        .then((res) => {
+                            resolve(res)
+                            console.log(res)
+                            return res.json()
+                        })
+                        .catch(err => {
+                            console.log(err)
+                            reject(err)
                         })
                 })
             }
