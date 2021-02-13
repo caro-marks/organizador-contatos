@@ -74,14 +74,13 @@ const googleAuth = (function () {
                 })
             }
 
-            this.listEmails = () => {
-                window.gapi.client.people.otherContacts.list({
-                    "readMask": "emailAddresses"
-                })
-                .then((response) => response.result.otherContacts)
-                .then(res => res.json(),
-                (err) => { console.error("Execute error", err) });
-            }
+            // this.listEmails = () => {
+            //     console.log()
+            //     return window.gapi.client.people.otherContacts.list({
+            //         "readMask": "emailAddresses"
+            //     })//.result.otherContacts
+            //     .then(response => response.result.otherContacts.json())
+            // }
 
             this.signOut = (successCallback, errorCallback) => {
                 return new Promise((resolve, reject) => {
