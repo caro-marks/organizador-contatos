@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 <h1 > Organizador de Contatos </h1>
 <h2 > Aplicação que lê os contatos do usuário e organiza seus emails de acordo com os domínios. </h2>
 <img src="https://img.shields.io/static/v1?label=Vue&message=PeopleAPI&color=7159c1&style=for-the-badge&logo=ghost"/>
@@ -25,18 +23,6 @@ git clone <https://github.com/caro-marks/organizador-contatos>
 `cd organizador-contatos`
 
 ### Instale as dependências
-
-=======
-
-<h1 > Organizador de Contatos </h1>
-<h2 > Aplicação que lê os contatos do usuário e organiza seus emails de acordo com os domínios. </h2>
-<img src="https://img.shields.io/static/v1?label=Vue&message=PeopleAPI&color=7159c1&style=for-the-badge&logo=ghost"/>
-
-## Construída com Vue.js e utilizando a People API do Google.
-
-### Project setup
-
-> > > > > > > 3b2e2df6c7221c1133f72db7514f5235df25dba5
 
 ```
 npm install
