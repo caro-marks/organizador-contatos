@@ -16,11 +16,15 @@
 
 ### Clone este repositório
 
+```
 git clone <https://github.com/caro-marks/organizador-contatos>
+```
 
 ### Acesse a pasta do projeto no terminal/cmd
 
-`cd organizador-contatos`
+```
+cd organizador-contatos
+```
 
 ### Instale as dependências
 
