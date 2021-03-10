@@ -38,44 +38,44 @@
 </template>
 
 <script>
-import router from "@/router/index.js";
+import router from '@/router/index.js'
 
 export default {
   data() {
     return {
       isSignedIn: undefined
-    };
+    }
   },
-  name: "Menu",
+  name: 'Menu',
   methods: {
     loginWG() {
       this.$gAuth
         .signIn()
-        .then(GoogleUser => {
-          console.log("GoogleUser", GoogleUser);
-          console.log("getId", GoogleUser.getId());
-          console.log("getBasicProfile", GoogleUser.getBasicProfile());
-          console.log("getAuthResponse", GoogleUser.getAuthResponse());
-          router.push("/emails");
+        .then((GoogleUser) => {
+          console.log('GoogleUser', GoogleUser)
+          console.log('getId', GoogleUser.getId())
+          console.log('getBasicProfile', GoogleUser.getBasicProfile())
+          console.log('getAuthResponse', GoogleUser.getAuthResponse())
+          router.push('/emails')
         })
-        .catch(error => {
-          console.log("error", error);
-        });
+        .catch((error) => {
+          console.log('error', error)
+        })
     },
     async logout() {
       try {
-        await this.$gAuth.signOut();
-        console.log("isSignin", this.$gAuth.isAuthorized);
-        router.push("/");
+        await this.$gAuth.signOut()
+        console.log('isSignin', this.$gAuth.isAuthorized)
+        router.push('/')
       } catch (error) {
-        console.error(error);
+        console.error(error)
       }
     }
   },
   mounted() {
-    this.isSignedIn = this.$gAuth.isAuthorized;
+    this.isSignedIn = this.$gAuth.isAuthorized
   }
-};
+}
 </script>
 
 <style>

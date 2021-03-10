@@ -15,13 +15,13 @@
 </template>
 
 <script>
-import Menu from "@/components/Menu.vue";
+import Menu from '@/components/Menu.vue'
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     Menu
   }
-};
+}
 </script>
 
 <style scoped>

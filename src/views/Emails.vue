@@ -27,91 +27,91 @@
 </template>
 
 <script>
-import Menu from "@/components/Menu";
+import Menu from '@/components/Menu'
 export default {
-  name: "Emails",
+  name: 'Emails',
   components: {
     Menu
   },
   data() {
     return {
       contatos: []
-    };
+    }
   },
 
   created() {
-    this.getContacts();
-    this.getOtherContacts();
+    this.getContacts()
+    this.getOtherContacts()
   },
 
   methods: {
     getContacts() {
       this.$gAuth.Gapi.client.people.people.connections
         .list({
-          resourceName: "people/me",
-          personFields: "emailAddresses"
+          resourceName: 'people/me',
+          personFields: 'emailAddresses'
         })
-        .then(mails => {
-          const Contatos = mails.result.connections;
-          this.appendContacts(Contatos);
-          console.log("Contatos concluído.");
-        });
+        .then((mails) => {
+          const Contatos = mails.result.connections
+          this.appendContacts(Contatos)
+          console.log('Contatos concluído.')
+        })
     },
 
     getOtherContacts() {
       this.$gAuth.Gapi.client.people.otherContacts
         .list({
-          readMask: "emailAddresses"
+          readMask: 'emailAddresses'
         })
-        .then(mails => {
-          const Contatos = mails.result.otherContacts;
-          this.appendContacts(Contatos);
-          console.log("Outros contatos concluído.");
-        });
+        .then((mails) => {
+          const Contatos = mails.result.otherContacts
+          this.appendContacts(Contatos)
+          console.log('Outros contatos concluído.')
+        })
     },
 
     appendContacts(Contacts) {
       for (let contact of Contacts) {
         if (contact.emailAddresses) {
-          this.contatos.push(contact.emailAddresses[0].value);
+          this.contatos.push(contact.emailAddresses[0].value)
         }
       }
     },
 
     groupContacts(contacts) {
       const grupos = contacts.reduce((acumulator, email) => {
-        const [name, domain] = email.split("@");
-        const group = acumulator[`@${domain}`] ?? [];
-        acumulator[`@${domain}`] = [...group, name];
-        return acumulator;
-      }, {});
+        const [name, domain] = email.split('@')
+        const group = acumulator[`@${domain}`] ?? []
+        acumulator[`@${domain}`] = [...group, name]
+        return acumulator
+      }, {})
 
       for (let grupo in grupos) {
-        this.emails.push({ domain: grupo, mails: grupos[grupo] });
+        this.emails.push({ domain: grupo, mails: grupos[grupo] })
       }
-      console.log("Emails prontos.");
+      console.log('Emails prontos.')
     }
   },
   computed: {
     groupedMails() {
-      const emails = [];
+      const emails = []
 
       const grupos = this.contatos.reduce((acumulado, email) => {
-        const [name, domain] = email.split("@");
-        const group = acumulado[`@${domain}`] ?? [];
-        acumulado[`@${domain}`] = [...group, name];
-        return acumulado;
-      }, {});
+        const [name, domain] = email.split('@')
+        const group = acumulado[`@${domain}`] ?? []
+        acumulado[`@${domain}`] = [...group, name]
+        return acumulado
+      }, {})
 
       for (let grupo in grupos) {
-        emails.push({ domain: grupo, mails: grupos[grupo] });
+        emails.push({ domain: grupo, mails: grupos[grupo] })
       }
-      console.log("dados computados com sucesso!");
+      console.log('dados computados com sucesso!')
 
-      return emails;
+      return emails
     }
   }
-};
+}
 </script>
 
 <style scoped>
