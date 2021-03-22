@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <Menu />
     <table class="contacts-table">
       <thead>
         <tr>
@@ -27,12 +26,8 @@
 </template>
 
 <script>
-import Menu from '@/components/Menu'
 export default {
   name: 'Emails',
-  components: {
-    Menu
-  },
   data() {
     return {
       contatos: []

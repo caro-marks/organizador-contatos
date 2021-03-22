@@ -1,16 +1,20 @@
 <template>
   <div id="app">
+    <Menu />
     <router-view />
-    <p class="footer">
-      Projeto desenvolvido por Marcos Nolasco, como parte do processo seletivo
-      da Conecta Nuvem.
-    </p>
+    <Footer />
   </div>
 </template>
 
 <script>
+import Menu from '@/components/Menu'
+import Footer from '@/components/Footer'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    Menu,
+    Footer
+  }
 }
 </script>
 
@@ -25,12 +29,5 @@ body {
   font-size: 15px;
   background: #80e27e;
   margin: 0 0.2em;
-}
-.footer {
-  text-align: center;
-  background: #087f23;
-  color: #fff;
-  padding: 0.5em;
-  bottom: 0;
 }
 </style>

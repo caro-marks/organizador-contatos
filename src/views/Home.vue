@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <Menu />
     <section class="main-container">
       <div class="loginsuccess-container">
         <h1 class="heading">
@@ -15,12 +14,8 @@
 </template>
 
 <script>
-import Menu from '@/components/Menu.vue'
 export default {
-  name: 'Home',
-  components: {
-    Menu
-  }
+  name: 'Home'
 }
 </script>
 
